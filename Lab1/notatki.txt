@@ -1,0 +1,79 @@
+Zbalansowanie zbioru.
+- Zbalasowanie zbioru odnosi się do sytuacji w której różne klasy w zbiorze mają podobną liczebność. Algorytmy uczące się na podstawie zbilansowanego zbioru nie skupiają sie na jednej klasie kosztem innych (model jest skuteczniejszy oraz się nie przeucza). Niezbalansowany zbiór to taki gdzie jedna klasa dominuje nad innymi. Model wytrenowany na niezbalanowanym zbiorze może mieć tendencje do przewidywania klasy która występuje częściej.
+
+Miary oceny jakości klasyfikacji.
+- narzędzia używane do ocenu skuteczności modelu klasyfikacyjnego na podstawie wyników predykcji.
+* Dokładność (Accuracy): Poprawnie sklasyfikowane/Wszystkie
+NIE RADZI SOBIE Z KLASAMI NIEZBALANSOWANYMI
+* Precyzja (Precision): Dokładność pozytywnych predykcji - TP/(TP + FP)
+* Czułość (Recall): Wykrywanie wszystkich pozytwnych przypadków
+TP/(TP + FN)
+* F1_SCORE (Średnia harmoniczna)
+(2*Precision*Recall)/(Precision + Recall)
+
+Miary oceny jakości regresji.
+- Używane do ocenienia jak dobrze model przewiduje ciągłe wartości numeryczne
+* Średni Błąd Kwadratowy (Mean Square Error - MSE)
+MSE = 1/n*Sum_{i=1}^{n} (y_i - y^_i)^2
+* Pierwiastek kwadratowy z MSE (Odchylenie standardowe reszt)
+
+Podział zbioru danych na treningowy, testowy, walidacyjny.
+- Tworząc model np. regresji liniowej dzialimy zbiór na treningowy oraz testowy. Zbiór treningowy pozwoli nam utworzyć model, testowy oszacować jego jakość. W przypadku tuningu hiperparametrów tworzymy również zbiór walidacyjny który ma sprawdzać jakość modelu dla różnych hiperparametrów. Zbiór walidacyjny wycina się ze zbioru treningowego. Najczęstsze proporcje 60/20/20 80/10/10
+
+Hiperparametry treningu.
+- Hiperparametr jest stałą narzucaną z góry przed treningiem.
+Hiperparametr jest używany w regularyzacji modelu w celu penalizacji dużych wag w funkcji kosztu
+
+Walidacja skrośna.
+- Polega na tym że dzielimy zbiór na K równych podzbiorów (foldów) Każdy po pokolei staje się zbiorem walidacyjnym, a reszta połączonym zbiorem treningowym.
+
+Regularyzacja: L1 i L2.
+- to dwie metody służące do zapobiegania przeuczania się modelu. Są przydatne zwłaszcza przy regresji liniowej i logistycznej.
+L1:
+	- dodaje do funkcji straty modelu wartości bewzględne wag jako kara,
+	- dużo wag może być bliskich zeru przez co unikamy danych o niskim priorytecie
+	- Regresja L1 - LASSO dokonuje selekcji cech (feature selection)
+	  L_LASSO(y, y^) = 1/n*(y-y^)^{2} + alpha*||w||_1
+L2:
+	- dodaje do funkcji straty kwadraty wartości wag jak kara,
+	- wagi są bardziej zrównoważone, ta metoda chce zachować wszystkie wagi
+	- nie ma faworyzacji zmiennych, przez brak wysokich wag (przez fakt zrównoważonych wag)
+	- Regresja L2 - RIDGE zmniejsza wagi i jest różniczkowalna
+	 L_RIDGE(y, y^) = 1/n*(y-y^)^{2} + delta*||w||^{2}_{2}
+
+Niedopasowanie (underfitting).
+- Underfitting pojawia się gdy nasz model nie radzi sobie zarówno z danymi treningowymi jak i testowymi. Oznacza to, że model jest zbyt prosty, aby poprawnie dopasować się do danych treningowych i nie jest w stanie efektywnie uczyć się z nich. W rezultacie model nie potrafi odzwierciedlić złożoności danych treningowych, co prowadzi do niskiej dokładności i słabego ogólnego wydajności modelu.
+
+Nadmierne dopasowanie (overfitting).
+-  Oznacza to, że model jest zbyt skomplikowany lub zbyt dokładnie dopasowany do danych treningowych, co prowadzi do słabej zdolności modelu do generalizacji na nowe, nie widziane wcześniej dane.
+Wartość błędu testowego duża wyższa od treningowego. W celu poprawy modelu trzeba go regularyzować.
+
+Regresja liniowa.
+Służy do przewidywania wartości ciągłej. Polega na znalezieniu liniowej zależności między zmiennymi niezależnymi a zmienną zależną. Model regresji liniowej y = ax + b,
+
+Regresja logistyczna a klasyfikacja.
+- Pozwala na przewidywanie zmiennych w oparciu o jedną lub większą ilosć cech. Funkcją bazową jest funkcja logarytmiczna. Jest używana do przewidywania prawdopodobieństwa przynależności do jednej z dwóch klas (klasyfikacja binarna) lub do wielu klas (klasyfikacja wieloklasowa)
+
+Obciążenie modelu uczenia maszynowego.
+- odnosi się do błędów lub uproszczeń, które są wprowadzane przez model, które sprawiają, że model jest niewłaściwie dostosowany do danych treningowych. Obciążenie modelu występuje, gdy model jest zbyt prosty lub ma niewystarczającą liczbę parametrów, aby dokładnie dopasować się do danych. Aby temu zapobiec możemy zwiększyć złożoność modelu, poprawić ilość i jakość cech lub użyć tuningu hiperparametrów.
+
+Wariancja modelu uczenia maszynowego.
+- odnosi się do zdolności dostosowywania się do różnych zestawów danych treningowych. Oznacza to, że model o wysokiej wariancji jest wrażliwy na fluktuacje w danych treningowych i może dostosowywać się zbyt dokładnie do tych danych, co prowadzi do overfittingu. Model o niskiej wariancji jest mniej wrażliwy na fluktuacje w danych treningowych, ale może mieć obciążenie, co oznacza, że nie jest w stanie dokładnie dopasować się do danych. Aby temu zapobiec można zastosować: regularyzacje, zwiększenie ilości danych treningowych, tuning hiperparametrów, uproszczenie modelu.
+
+Konstrukcja i działanie drzew decyzyjnych.
+- Konstrukcja i działanie drzew decyzyjnych polega na tworzeniu drzewa, w którym każdy węzeł reprezentuje decyzję lub test na jednej z cech, a liście drzewa reprezentują przewidywane klasy lub wartości
+
+Macierz pomyłek.
+- Metryka opisująca sytuacje jakie mogą się zdarzyć przy klasyfikacji Binarnej
+
+TP | FN
+-------
+FP | TN
+
+TP Model: TRUE Actual TRUE
+FP Model: TRUE Actual FALSE
+TN Model: FALSE Actual FALSE
+FN Model: FALSE Actual TRUE
+
+Funkcja kosztu.
+Idea funkcji kosztu polega na tym, że im bardziej prognozy modelu różnią się od rzeczywistych wartości, tym wyższa wartość funkcji kosztu. 

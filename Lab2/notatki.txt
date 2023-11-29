@@ -1,0 +1,122 @@
+PSI – WEJŚCIÓWKA 2
+
+
+Pytania:
+    1. Kiedy zwiększymy pojemność (ang. capacity) sieci neuronowej, to czego jednocześnie potrzebujemy, aby osiągała ona odpowiednie wyniki, a w szczególności nie przeuczała się?
+
+Przy zwiększaniu pojemności sieci neuronowej, konieczne jest jednoczesne dostarczenie większej ilości danych treningowych, aby uniknąć przeuczenia i poprawić zdolność generalizacji. Dodatkowo, stosowanie technik regularyzacji, takich jak dropout lub L1/L2 regularyzacja, pomoże kontrolować nadmierną złożoność modelu. Ostatecznie, konieczne jest monitorowanie wydajności na zbiorze walidacyjnym i dostosowywanie architektury oraz hiperparametrów w celu uzyskania optymalnych wyników.
+
+    2. Wymień 2 funkcje aktywacji (ang. activation function) w sieciach neuronowych
+
+Funckcja ReLU oraz funkcja sigmoidalna
+
+    3. Czym jest spadek wzdłuż gradientu (ang. gradient descent) ?
+
+Algorytm optymalizacji wykorzystywany w uczeniu maszynowym do minimalizacji funkcji kosztu. Działa poprzez iteracyjne modyfikowanie parametrów modelu w kierunku, w którym funkcja kosztu maleje najszybciej, czyli w kierunku ujemnego gradientu funkcji kosztu. Algorytm ten jest wykorzystywany do dostosowywania wag w sieciach neuronowych i innych modelach uczenia maszynowego podczas procesu uczenia.
+
+    4. Czym jest funkcja aktywacji neuronu (ang. activation function)?
+
+Nieliniowa funkcja matematyczna stosowana w każdym neuronie. Jej rola polega na wprowadzeniu nieliniowości do przekształcania sygnałów wejściowych, co umożliwia modelom uczenia maszynowego rozwiązywanie bardziej złożonych problemów, które nie są liniowe. Popularnymi funkcjami aktywacji są np. ReLU, sigmoid i tanh.
+
+    5. Jak działa metoda propagacji wstecznej (ang. backpropagation)?
+    
+Metoda propagacji wstecznej (backpropagation) jest używana do dostosowywania wag neuronów w procesie uczenia. Oblicza gradient funkcji kosztu w stosunku do wag i propaguje ten gradient wstecz przez sieć, aby dostosować wagi w taki sposób, aby zmniejszyć błąd predykcji. 
+
+    6. Wymień 2 funkcje kosztu (ang. Loss function/ cost function) dla regresji, używane w treningu sieci neuronowych.
+
+Entropia krzyżowa, błąd logarytmiczny,  sredni błąd bezwględny (MAE)
+
+    7. Co to jest propagacja wsteczna w kontekście uczenia sieci neuronowych?
+
+Algorytm propagacji wstecznej umożliwia sieciom neuronowym uczenie się na podstawie danych treningowych, dostosowując wagi neuronów w sposób, który poprawia zdolność modelu do dokładnej predykcji.
+	
+    8. Czym jest współczynnik uczenia (ang. Learning rate)?
+
+Współczynnik uczenia (learning rate) to hiperparametr, który kontroluje, o ile zostaną zaktualizowane wagi podczas każdej iteracji algorytmu propagacji wstecznej, i jest on istotny dla szybkości i stabilności uczenia.
+
+    9. Jaki warunek muszą spełniać funkcje używane w sieciach neuronowych, np. funkcja aktywacji (activation function) czy funkcja kosztu (ang. loss function/cost function), aby dało się ich użyć w metodzie spadku wzdłuż gradientu (ang. gradient descent)?
+
+Funkcje aktywacji i funkcje kosztu stosowane w sieciach neuronowych muszą być różniczkowalne. To oznacza, że dla dowolnej zmiany wag sieci neuronowej można obliczyć gradient funkcji kosztu lub funkcji aktywacji. Dodatkowo, te funkcje muszą być ciągłe, aby umożliwić gładkie dostosowanie wag w procesie uczenia przy użyciu gradientu.
+
+
+
+
+Zagadnienia:	
+
+    1. Spadek wzdłuż gradientu.
+Algorytm optymalizacyjny używany do minimalizacji funkcji kosztu. Proces ten ma na celu znalezienie minimum globalnego lub lokalnego danej funkcji.
+ 
+    2. Stochastyczny spadek wzdłuż gradientu.
+    
+Wariant algorytmu spadku wzdłuż gradientu. W przeciwieństwie do klasycznego spadku wzdłuż gradientu, który używa pełnego zestawu danych treningowych do każdej aktualizacji parametrów modelu, SGD używa jednego losowo wybranego przykładu treningowego w każdej iteracji.
+
+    3. Funkcja aktwacji neuronu.
+Wprowadza nieliniowość modelu, co umożliwia sieci rozwiązywanie bardziej skomplikowanych problemów, które nie są liniowe. Funkcja aktywacji przyjmuje ważone sumy sygnałów wejściowych do neuronu i przekształca je, generując sygnał wyjściowy neuronu. (funkcja ReLU, sigmoid)
+
+    4. Rodzaje funkcji kosztu w uczeniu sieci neuronowych.
+Entropia krzyżowa, błąd logarytmiczny,  sredni błąd bezwględny (MAE)
+
+    5. Współczynnik uczenia.
+Współczynnik uczenia (learning rate) to hiperparametr, który kontroluje, o ile zostaną zaktualizowane wagi podczas każdej iteracji algorytmu propagacji wstecznej, i jest istotny dla szybkości i stabilności uczenia.
+
+    6. Własności funkcji kosztu w kontekście uczenia sieci neuronowych.
+Nieliniowość, są miara błędu, dostosowywalność, odporność na wartości odstające, skalowalność.
+
+    7. Sieć w pełni połączona.
+W warstwie w pełni połączonej każdy neuron jest połączony z każdym neuronem z poprzedniej warstwy, co oznacza, że każdy neuron przekazuje sygnał wyjściowy do każdego neuronu w warstwie docelowej. Warstwy w pełni połączone mają swoje wagi i obciążenia (bias), które są dostosowywane w procesie uczenia poprzez metodę propagacji wstecznej (backpropagation), aby minimalizować funkcję kosztu.
+
+
+    8. Funkcja softmax.
+Funkcja ta przekształca wektor liczb rzeczywistych na wektor liczb z przedziału [0, 1], tak że suma wartości wektora wynosi 1. Jest powszechnie stosowana do obliczania prawdopodobieństw przynależności obiektu do różnych klas w zadaniach klasyfikacji.
+
+    9. Entropia krzyżowa.
+To miara używana w teorii informacji i uczeniu maszynowym do porównywania dwóch rozkładów prawdopodobieństwa lub do mierzenia, jak dobrze model probabilistyczny (np. model klasyfikacji) reprezentuje rzeczywiste dane.
+
+    10. Sieć neuronowa jako uniwersalny aproksymator.
+Sieć neuronowa jest zdolna do przybliżania dowolnej funkcji matematycznej z pewnym stopniem dokładności, o ile ma odpowiednią architekturę i dostateczną liczbę parametrów.
+
+    11. Wsteczna propagacja błędu.
+Wsteczna propagacja błędu to algorytm używany do trenowania sieci neuronowych poprzez aktualizację wag na podstawie błędów predykcji w celu minimalizacji błędu. Algorytm ten polega na propagacji błędu wstecz od warstwy wyjściowej do warstw ukrytych, a następnie na aktualizacji wag w sieci w kierunku minimalizacji funkcji kosztu.
+
+    12. Dziłanie pojedynczego neuronu sieci neuronowej.
+Neuron w sieci neuronowej przyjmuje zestaw wejść, przeprowadza obliczenia na tych wejściach i generuje wynik na wyjściu. To obliczenie jest oparte na sumowaniu ważonych wejść i przepuszczeniu wyniku przez funkcję aktywacji. Neuron może wykonywać różne operacje, takie jak dodawanie, mnożenie i stosowanie nieliniowej funkcji aktywacji.
+
+    13. Liczba parametrów sieci a problem przeuczenia.
+Liczba parametrów w sieci neuronowej ma wpływ na ryzyko przeuczenia. Im większa liczba parametrów, tym większe ryzyko przeuczenia, dlatego ważne jest dostosowanie architektury sieci i regularyzacja, aby kontrolować ten problem.
+
+
+    15. Mini-paczki (mini-batch) w uczeniu sieci neuronowych.
+Podzbiory danych treningowych, które są używane do jednej iteracji procesu trenowania modelu. W praktyce, zamiast aktualizować wagi modelu po każdym pojedynczym przykładzie (tzw. spadek wzdłuż gradientu), czy po całym zestawie danych treningowych (tzw. spadek gradientu), używa się mini-paczek.
+
+    16. Dropout.
+Dropout to technika regularyzacji stosowana w sztucznych sieciach neuronowych podczas procesu uczenia. Celem tej techniki jest zapobieganie przeuczeniu się modelu
+
+    17. Wczesny stop (early stopping).
+Wczesny stop (early stopping) to technika regularyzacji stosowana podczas treningu modeli w uczeniu maszynowym, w tym w sieciach neuronowych. Celem tej techniki jest uniknięcie przeuczenia się modelu poprzez zatrzymywanie procesu uczenia, gdy model zaczyna zbytnio dostosowywać się do danych treningowych i zaczyna tracić zdolność do generalizacji na nowe dane.
+
+    18. Gradient w kontekście uczenia sieci neuronowych.
+Gradient odnosi się do wektora, który wskazuje kierunek najszybszego wzrostu funkcji kosztu (lub błędu) względem parametrów modelu. Gradient funkcji kosztu mówi nam, jak bardzo i w jakim kierunku musimy dostosować wagi (parametry) naszego modelu, aby zminimalizować błąd.
+
+    19. Nieliniowość funkcji aktywacji.
+Funkcja aktywacji jest zastosowana do wyników obliczeń wewnątrz neuronu, wprowadzając nieliniowość do modelu. To nieliniowe działanie jest istotne dla zdolności sieci do modelowania złożonych, nieliniowych relacji w danych.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
